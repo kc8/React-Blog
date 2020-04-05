@@ -97,7 +97,7 @@ const ContextState = () => {
                     authObj: auth
                 }} 
                 > 
-                    <Routes /> 
+                    <Routes />
                 </Context.Provider> 
                 </div>
     )
