@@ -14,7 +14,7 @@ import Routes from './routes';
 
 import Auth from './utils/auth';
 
-const auth = new Auth(); 
+const auth = new Auth(); //init class from auth.js 
 
 const ContextState = () => { 
     //Plain Reducer
