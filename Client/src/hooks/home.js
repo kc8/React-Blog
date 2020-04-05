@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 
-const Home = props => (
+const Home = props => {
+    useEffect(() => {
+      axios.get('/api/hello')
+        .then(res => setState(res.data))
+    }, [])
+
+    const [state, setState] = useState('')
+    console.log('state: ' + state)
+  return(
     <div>
-        Home
+      Home
+      <p>{state}</p>
     </div>
-)
+ )
+};
 
 export default Home;
