@@ -10,7 +10,7 @@ import AuthCheck from './utils/authcheck';
 
 import Home from './hooks/home';
 import Header from './hooks/header';
-import HooksContainer1 from './hooks/hook1';
+import HooksContainer1 from './hooks/hooks1';
 import Callback from './hooks/callback';
 import HooksForm from './hooks/hooks_form1';
 import PrivateComponent from './hooks/privatecomponent';

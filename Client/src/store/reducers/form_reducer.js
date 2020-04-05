@@ -20,7 +20,7 @@ export const FormReducer = (state, action) => {
         case ACTION_TYPES.USER_INPUT_SUBMIT: 
             return {
                 ...state, 
-                user_textSubmit
+                user_textSubmit: action.payload
             }
         default: 
             throw new Error();

@@ -3,9 +3,8 @@
 */
 
 import * as ACTION_TYPES from '../actions/action_types'
-import { initialState } from './form_reducer'
 
-export const inialState = { 
+export const initialState = { 
     stateprop1: false, 
     stateprop2: false
 }

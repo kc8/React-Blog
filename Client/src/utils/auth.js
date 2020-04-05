@@ -2,7 +2,7 @@
     #To-Do: We should not use local storage 
 */
 
-import auth0 from 'auth-js'; //used to init the auth0 app
+import auth0 from 'auth0-js' //used to init the auth0 app
 import history from './history';
 
 export default class Auth { 
@@ -75,5 +75,4 @@ export default class Auth {
         let expiresAt = JSON.parse(localStorage.getItem('expiresAt'))
         return new Date().getTime() < expiresAt
     }
-
 }

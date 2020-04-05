@@ -12,7 +12,7 @@ const HooksContainer1 = () => {
     const [state, dispatch] = useReducer(Reducer1.Reducer1, Reducer1.initialState)
 
     useEffect(() => { 
-        setTimeout(() => setUsEffectValue("useEffect worked"), 3000);
+        setTimeout(() => setUseEffectValue("useEffect worked"), 3000);
     }, [value])
 
     const incrementValue = () => { 
@@ -23,8 +23,8 @@ const HooksContainer1 = () => {
         setValue(value - 1 )
     }
 
-    const HandeuseEffectValue = () => {
-        setUserEffectValue("some string")
+    const handleUseEffectValue = () => {
+        setUseEffectValue("some string")
     }
 
     const handleDispatchTrue = () => { 
@@ -38,7 +38,7 @@ const HooksContainer1 = () => {
     return ( 
         <div>
             <div>
-                <button onClick={() => handleuseEffectValue()}> Handle Value  </button>
+                <button onClick={() => handleUseEffectValue()}> Handle Value  </button>
                 <button onClick={() => handleDispatchTrue()}>Dispatch True </button>
                 <button onClick={() => handleDispatchFalse()}>Dispatch False </button>
                 <button onClick={() => context.dispatchContextTrue()}>Dispatch Context True </button>
@@ -74,3 +74,5 @@ const HooksContainer1 = () => {
         </div>
     )
 }
+
+export default HooksContainer1;

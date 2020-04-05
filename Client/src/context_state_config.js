@@ -31,11 +31,14 @@ const ContextState = () => {
     }
 
     //auth reducer
-    const [stateAuthReducer, dispatchAuthReducer] = useReducer(AuthReducer.Auth, 
+    const [stateAuthReducer, dispatchAuthReducer] = useReducer(AuthReducer.AuthReducer, 
                                                                 AuthReducer.initialState)
     
     const handleLogin = () => { 
         dispatchAuthReducer(ACTIONS.login_success())
+    }
+    const handleLogout = () => {
+        dispatchAuthReducer(ACTIONS.login_failure())
     }
 
     const handleAddProfile = (profile) => { 
@@ -48,7 +51,7 @@ const ContextState = () => {
     
     //Form Reducer
 
-    const [stateFormReduer, dispatchAuthReducer] = useReducer(FormReducer.FormReducer, 
+    const [stateFormReduer, dispatchFormReducer] = useReducer(FormReducer.FormReducer, 
                                                                 FormReducer.initialState)
 
     const handleFormChange = (event) => {
@@ -85,7 +88,7 @@ const ContextState = () => {
 
                     //Auth Reducer
                     authState: stateAuthReducer.is_authenticated, 
-                    profileState: stateAutheReducer.profile,
+                    profileState: stateAuthReducer.profile,
                     handleUserLogin: () => handleLogin(),
                     handleUserLogout: () => handleLogout(), 
                     handleUserAddProfile: (profile) => handleAddProfile(profile),
