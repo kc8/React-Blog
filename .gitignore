@@ -1,5 +1,8 @@
 #Custom
 
+# Ignore db settings. See DB template for example of setting up your own
+db.js
+
 #Express Template
 # OS X
 .DS_Store*
