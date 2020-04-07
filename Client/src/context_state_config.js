@@ -10,6 +10,7 @@ import * as ACTIONS from './store/actions/actions';
 import * as Reducer1 from './store/reducers/plain_reducer'; 
 import * as AuthReducer from './store/reducers/auth_reducer'; 
 import * as FormReducer from './store/reducers/form_reducer'; 
+import * as PostsReducer from './store/reducers/posts_reducer';
 import Routes from './routes'; 
 
 import Auth from './utils/auth';
@@ -49,6 +50,13 @@ const ContextState = () => {
         dispatchAuthReducer(ACTIONS.remove_profile())
     }
     
+    const handleDBProfile = (profile) => { 
+        dispatchAuthReducer(ACTIONS.set_db_profile(profile)) //changed function name from dispatchAuth to dispatchAuthReducer
+    }
+
+    const handleRemoveDBProfile = () => {
+        dispatchAuthReducer(ACTIONS.remove_db_profile()) //changed function name from dispatchAuth to dispatchAuthReducer
+    }
     //Form Reducer
 
     const [stateFormReduer, dispatchFormReducer] = useReducer(FormReducer.FormReducer, 
@@ -68,6 +76,19 @@ const ContextState = () => {
         if(props.location.hash) { 
             auth.handleAuth()
         }
+    }
+
+    //post reducer
+
+    const [statePostsReducer, dispatchPosts] = useReducer(PostsReducer.PostsReducer, 
+                                                        PostsReducer.initialState) //mightr be a missing parm here
+
+    const handleSetPosts = (posts) => { 
+        dispatchPosts(ACTIONS.set_db_posts(posts))
+    }
+
+    const handleRemovePosts = (posts) => {
+        dispatchPosts(ACTIONS.remove_db_posts())
     }
 
     return(
@@ -97,7 +118,15 @@ const ContextState = () => {
                     //handle auth
 
                     handleAuth: (props) => handleAuthentication(props), 
-                    authObj: auth
+                    authObj: auth,
+                    dbProfileState: stateAuthReducer.db_profile, 
+                    handleAddDBProfile: (profile) => handleDBProfile(profile), 
+                    handleRemoveDBProfile: () => handleRemoveDBProfile(), 
+
+                    //posts state
+                    postsState: statePostsReducer.posts, 
+                    handleAddPost: (posts) => handleSetPosts(posts), 
+                    handleRemovePosts: () => handleRemovePosts()
                 }} 
                 > 
                     <Routes />
