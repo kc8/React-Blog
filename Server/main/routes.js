@@ -6,6 +6,7 @@ var express = require('express')
 var router = express.Router()
 var db = require('./db') //Reference to db was replaced by db
 
+
 router.get('/api/get/allposts', (req, res, next ) => {
     db.query(`SELECT * FROM posts 
                 ORDER BY date_created DESC`, 
@@ -24,7 +25,9 @@ router.get('/api/get/allposts', (req, res, next ) => {
         })
   } )
   
-  
+  /*
+
+  REMOVAL OF NOT WORKING FEATURES OR SOON TO BE IMPLEMENTED
   router.post('/api/post/posttodb', (req, res, next) => {
     const values = [ req.body.title, 
                      req.body.body,
@@ -88,9 +91,10 @@ router.get('/api/get/allposts', (req, res, next ) => {
     });
   });
   
-  /*
-      COMMENTS ROUTES SECTION
-  */
+  
+
+     //  COMMENTS ROUTES SECTION
+
   
   
   router.post('/api/post/commenttodb', (req, res, next) => {
@@ -144,9 +148,9 @@ router.get('/api/get/allposts', (req, res, next ) => {
         })
   })
   
-  /*
-    USER PROFILE SECTION
-  */
+
+    //USER PROFILE SECTION
+  
   
   router.post('/api/posts/userprofiletodb', (req, res, next) => {
     const values = [req.body.profile.nickname, 
@@ -201,5 +205,5 @@ router.get('/api/get/allposts', (req, res, next ) => {
       res.json(q_res.rows)
     });
   });
-
+*/
 module.exports = router

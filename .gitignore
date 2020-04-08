@@ -1,5 +1,8 @@
 #Custom
 
+# OLD Code files from prior tutorial that were not needed
+./OLD_CODE
+
 # Ignore db settings. See DB template for example of setting up your own
 db.js
 

@@ -118,6 +118,7 @@ const ShowPost = (props) => {
      }
 
 
+     //removed before ?!props.isEditing {props.cur_user_id === props.comment.user_id 
     const RenderComments = (props) => {
       return(
       <div className={stateLocal.delete_comment_id === props.comment.cid
@@ -136,7 +137,7 @@ const ShowPost = (props) => {
         <p> By: { props.comment.author} </p>
         </div>
         <div>
-        {props.cur_user_id === props.comment.user_id
+        {true
           ? !props.isEditing
             ?  <div>
                   <Button onClick={() => setState({...stateLocal,
@@ -210,15 +211,15 @@ const ShowPost = (props) => {
       handleCommentSubmit(submitted_comment)
     }
 
-    const handleUpdate = (event, cid) => {
+    const handleUpdate = (event, cid, commentprops) => {
       event.preventDefault()
       console.log(event)
       console.log(cid)
       const comment = event.target.editted_comment.value
       const comment_id = cid
       const post_id = stateLocal.post_id
-      const user_id = context.dbProfileState[0].uid
-      const username = context.dbProfileState[0].username
+      const user_id = commentprops.userid
+      const username = commentprops.author
       const isEdited = true
       const current_time = "Just Now"
 

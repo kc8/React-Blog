@@ -1,10 +1,10 @@
 import React from 'react'; 
-import ContextState from './context_state_config';
+import Post from './blog/post'
 
 const App = () => { 
     return ( 
         <div> 
-            <ContextState />
+            <p>The only thing that should now be working</p>
         </div>
     )
 }
