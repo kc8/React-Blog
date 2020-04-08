@@ -3,6 +3,7 @@
 */
 
 import React from 'react'
+import * as Markdown from 'react-markdown';
 import {GET_SINGLE_POST} from '../configuration';
 
 class Post extends React.Component{
@@ -42,10 +43,11 @@ class Post extends React.Component{
         <div id="main">
             <article className="post">
                 <header>
-                    <div classname="title">
+                    <div className="title">
                         <h2>{this.state.title}</h2>
+                        <p></p>
                     </div>
-                    <div classname="meta">
+                    <div className="meta">
                         <time className="published" datetime="today">Date here</time>
                         <a href="#" className="author">
                             <span className="name">{this.state.author}</span>
@@ -54,7 +56,7 @@ class Post extends React.Component{
                     </div>
                 </header>
             <span className="image featured">IMAGE HERE</span>
-            <p>{this.state.body}</p>
+            <p><Markdown source={this.state.body} /></p>
             <footer></footer> 
         
         </article>

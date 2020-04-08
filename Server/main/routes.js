@@ -16,11 +16,11 @@ router.get('/api/get/allposts', (req, res, next ) => {
   })
 
   router.get('/api/get/post', (req, res, next) => {
-    const post_id = req.query.post_id
+    const pid = req.query.pid
   
     db.query(`SELECT * FROM posts
                 WHERE pid=$1`,
-              [ post_id ], (q_err, q_res) => {
+              [ pid ], (q_err, q_res) => {
                   res.json(q_res.rows)
         })
   } )

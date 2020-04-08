@@ -8,7 +8,7 @@ function Header() {
     return (
       <div>
       <header id="header">
-      <h1><a href="index.html">Kyle's Blog</a></h1>
+      <h1><Link to='/'>Kyle's Blog</Link></h1>
       <nav class="links">
         <ul>
           <li><Link to='/'>Home</Link></li>
@@ -23,6 +23,7 @@ function Header() {
         </ul>
       </nav>
     </header>
+    <p>This website is still under construction.</p>
     </div>
       ) 
   }
