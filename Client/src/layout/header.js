@@ -1,19 +1,29 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
+
+
+//Add a NaveBar with /about and home for posts. 
 function Header() {
     return (
-        <div className="container"> 
-          <div className="row">
-            <div className="col-sm">
-              <div className="jumbotron" style={{backgroundColor: "white"}}> 
-                <h1 className="text-center">YouDistract Me Not</h1>
-                <p className="text-center">
-                  Soon to be blog header (layout)
-                </p>
-              </div>
-            </div> 
-          </div> 
-        </div>
+      <div>
+      <header id="header">
+      <h1><a href="index.html">Kyle's Blog</a></h1>
+      <nav class="links">
+        <ul>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/about'>About</Link></li>
+        </ul>
+      </nav>
+      <nav class="main">
+        <ul>
+          <li class="menu">
+            <a class="fa-bars" href="#menu">Menu</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    </div>
       ) 
   }
 
