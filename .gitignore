@@ -1,5 +1,11 @@
 #Custom
 
+#Firebase for hosting
+y
+.firebase
+./.firebase
+.firebaserc
+firebase.json
 # OLD Code files from prior tutorial that were not needed
 ./OLD_CODE
 
