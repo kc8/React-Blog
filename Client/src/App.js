@@ -5,6 +5,7 @@ import Post from './blog/post'
 import Posts from './blog/posts'
 import About from './blog/about';
 import Footer from './layout/footer';
+import NotFound from './partials/404.js';
 
 function App() {  
     
@@ -15,7 +16,7 @@ function App() {
                 <Route path='/' component={Posts} exact />
                 <Route path='/about' component={About} /> 
                 <Route path='/post/:id' component={Post} />
-                <Route render={() => <div>404 Page Not Found</div>} />
+                <Route component={NotFound} />
             </Switch>
         <Footer />
         </main> 
