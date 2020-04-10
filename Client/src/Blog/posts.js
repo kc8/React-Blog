@@ -2,8 +2,7 @@
 Page for a single post
 */
 import React from 'react';
-import {Link} from 'react-router-dom';
-import axios from 'axios'
+//import {Link} from 'react-router-dom'; //future use
 import {POST_ALL_QUERY} from '../configuration';
 
 class Post extends React.Component{
@@ -11,7 +10,6 @@ class Post extends React.Component{
       super(props);
       this.state = {
                     posts: [],
-                    title: ''
                     }
     }
 
@@ -20,19 +18,17 @@ class Post extends React.Component{
         .then(res => res.json())
         .then((data) => {
                 this.setState({posts: data})
-            console.log("DATA DATA:", data)
         }, (error) => {
             console.log(error)
         });
-        console.log("THIS IS STATE: ", this.state.title)
     }
 
     componentWillUnmount() {
-        //do something here
+        //future use
     }
 
     displayPosts() { 
-        return this.state.title
+        return this.state.blog_title
     }
 
     diplaySinglePost() {
@@ -41,7 +37,6 @@ class Post extends React.Component{
 
     handleClick = (event) => { 
         const {history} = this.props; 
-        console.log(event.target.value)
         if(event.target.value) {
             if(history) history.push(`/post/${event.target.value}`);
         }
@@ -53,8 +48,8 @@ class Post extends React.Component{
             {this.state.posts.map((post) =>  (
                 <article className="post">
                 <header>
-                    <div className="title"><h2>{post.title}</h2>
-                    <p>{post.short_desc}</p>
+                    <div className="title"><h2>{post.blog_title}</h2>
+                    <p>{post.blog_short_desc}</p>
                     </div>
                 </header>
                 <footer>
@@ -62,7 +57,7 @@ class Post extends React.Component{
                         <li>
                         <button
                              className="button large"
-                             value={post.pid} 
+                             value={post.id} 
                              onClick={this.handleClick}>Read More</button>
                         </li>
                         <li>

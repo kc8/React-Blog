@@ -13,20 +13,23 @@ class Post extends React.Component{
                     pid: null, 
                     title: null, 
                     author: null, 
-                    body: null
+                    body: null,
+                    date: null
     }
     }
 
     //pass prop to get specific id? 
     componentDidMount(event) { 
-        fetch(`${GET_SINGLE_POST}${this.props.match.params.id}`)
+        let url = `${GET_SINGLE_POST}${this.props.match.params.id}/?format=json`
+        fetch(url)
         .then(res => res.json())
         .then((data) => {
                 this.setState({
-                            pid: data[0].pid,
-                            title: data[0].title, 
-                            body: data[0].body,
-                            author: data[0].author
+                            pid : data.id,
+                            title: data.blog_title, 
+                            body: data.blog_body,
+                            author: data.blog_author,
+                            date: data.blog_date_created
                             })
         }, (error) => {
             console.log(error)
@@ -37,7 +40,14 @@ class Post extends React.Component{
         //do something here
     }
 
-        
+    formatDate() { 
+
+    }
+
+    /* changed the <p></p> tage in the markdown source body to article as there 
+    was an error message. 
+    */
+
     render() {
       return (
         <div id="main">
@@ -48,15 +58,17 @@ class Post extends React.Component{
                         <p></p>
                     </div>
                     <div className="meta">
-                        <time className="published" datetime="today">Date here</time>
-                        <a href="#" className="author">
+                        <time className="published" dateTime="today">
+                            {this.state.date}
+                        </time>
+                        <a href="https://www.linkedin.com/in/kylejacksoncooper/" className="author">
                             <span className="name">{this.state.author}</span>
                             <img alt="avatar"></img>
                         </a>
                     </div>
                 </header>
-            <span className="image featured">IMAGE HERE</span>
-            <p><Markdown source={this.state.body} /></p>
+            <span className="image featured"></span>
+            <article><Markdown source={this.state.body}/></article>
             <footer></footer> 
         
         </article>

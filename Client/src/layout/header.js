@@ -9,17 +9,17 @@ function Header() {
       <div>
       <header id="header">
       <h1><Link to='/'>Kyle's Blog</Link></h1>
-      <nav class="links">
+      <nav className="links">
         <ul>
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/about'>About</Link></li>
           <li><a href='https://cooperkyle.com'>Portfolio</a></li>
         </ul>
       </nav>
-      <nav class="main">
+      <nav className="main">
         <ul>
-          <li class="menu">
-            <a class="fa-bars" href="#menu">Menu</a>
+          <li className="menu">
+            <a className="fa-bars" href="#menu">Menu</a>
           </li>
         </ul>
       </nav>
