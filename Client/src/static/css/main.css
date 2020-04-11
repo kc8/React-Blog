@@ -2293,6 +2293,11 @@ input, select, textarea {
 			display: block;
 		}
 
+		.image-fluid {
+			max-width: 100%;
+			height: auto;
+		}
+
 		.image.left, .image.right {
 			max-width: 40%;
 		}

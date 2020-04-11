@@ -6,6 +6,10 @@ import React from 'react'
 import * as Markdown from 'react-markdown';
 import {GET_SINGLE_POST} from '../configuration';
 
+function displayProps(props) {
+    console.log('propls: ', props.children)
+}
+
 class Post extends React.Component{
     constructor(props) {
       super(props);
@@ -46,8 +50,10 @@ class Post extends React.Component{
 
     /* changed the <p></p> tage in the markdown source body to article as there 
     was an error message. 
+    {image: (props) => {
+                        return <span class="image-fluid"><img src={props.children} alt="blog image"></img></span>}}
+                        }
     */
-
     render() {
       return (
         <div id="main">
@@ -67,13 +73,22 @@ class Post extends React.Component{
                         </a>
                     </div>
                 </header>
-            <span className="image featured"></span>
-            <article><Markdown source={this.state.body}/></article>
+            <article>
+                <Markdown 
+                    source={this.state.body}
+                    renderers={{image : (props) => 
+                        <span class="image featured"><img src={props.src} alt="blog image"></img></span>}}
+                        />
+            </article>
             <footer></footer> 
-        
         </article>
         </div>
       )
+
+
+
+
+
     }
   }
 

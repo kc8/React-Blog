@@ -11,7 +11,7 @@ blog site at https://blog.cooperkyle.com
 - [ ] Write a first post! 
 - [x] Overide default Firebase 404 and errors with custom page
 - [ ] Correct 404 for if there is not a blog post at a specific URL setup redirect to 404.
-- [ ] Fix IMAGE in single post 
+- [x] Fix IMAGE in single post -- when using markdown can use a rendered to a function passing in props to add a span and image tag, then add in the css class
 - [ ] Fix Date in top right hand corner
 - [ ] Add an avatar for a user (default one)? or remove entierly
 - [ ] Menu bar in top right needs attention
