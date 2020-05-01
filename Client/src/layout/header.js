@@ -24,7 +24,6 @@ function Header() {
         </ul>
       </nav>
     </header>
-    <p>This website is still under construction.</p>
     </div>
       ) 
   }

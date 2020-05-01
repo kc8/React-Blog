@@ -6,9 +6,7 @@ import React from 'react'
 import * as Markdown from 'react-markdown';
 import {GET_SINGLE_POST} from '../configuration';
 
-function displayProps(props) {
-    console.log('propls: ', props.children)
-}
+
 
 class Post extends React.Component{
     constructor(props) {
@@ -19,7 +17,7 @@ class Post extends React.Component{
                     author: null, 
                     body: null,
                     date: null
-    }
+        }
     }
 
     //pass prop to get specific id? 
@@ -36,7 +34,7 @@ class Post extends React.Component{
                             date: data.blog_date_created
                             })
         }, (error) => {
-            console.log(error)
+            this.setState({title: "Error Loading Article"}) 
         });
     }
 
@@ -45,7 +43,8 @@ class Post extends React.Component{
     }
 
     formatDate() { 
-
+        const dateObject = new Date(this.state.date)
+        return dateObject.toLocaleDateString()
     }
 
     /* changed the <p></p> tage in the markdown source body to article as there 
@@ -65,11 +64,10 @@ class Post extends React.Component{
                     </div>
                     <div className="meta">
                         <time className="published" dateTime="today">
-                            {this.state.date}
+                        {this.formatDate()}
                         </time>
                         <a href="https://www.linkedin.com/in/kylejacksoncooper/" className="author">
                             <span className="name">{this.state.author}</span>
-                            <img alt="avatar"></img>
                         </a>
                     </div>
                 </header>
